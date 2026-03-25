@@ -26,85 +26,102 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <main class="main-content">
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">Document Center</span>
+    </div>
+
     <section class="hero" style="padding:2.5rem 2rem 2rem;text-align:center">
       <div class="hero-content">
-        <h1 style="font-size:2.2rem" data-i18n="doc_title">📄 Document <span class="highlight">Center</span></h1>
-        <p data-i18n="doc_desc">Everything you need — checklists, templates, and preparation tips for your scholarship applications.</p>
+        <h1 style="font-size:2.2rem">📄 Document <span class="highlight">Center</span></h1>
+        <p>Everything you need — checklists, templates, and preparation tips for your scholarship applications.</p>
       </div>
     </section>
 
     <section class="section">
       <!-- GENERAL CHECKLIST -->
-      <div class="panel" style="margin-bottom:2rem">
-        <div class="panel-header"><h3><i class="fas fa-clipboard-check" style="color:var(--primary)"></i> <span data-i18n="checklist_title">General Document Checklist</span></h3></div>
+      <div class="panel" style="margin-bottom:2rem" id="checklist-section">
+        <div class="panel-header"><h3><i class="fas fa-clipboard-check" style="color:var(--primary)"></i> General Document Checklist</h3></div>
         <div id="docChecklist">
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck1">10th & 12th Marksheets (attested copies)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck2">College/University Admission Letter</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck3">Income Certificate (Family income proof)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck4">Caste Certificate (if applicable)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck5">Domicile / Residence Certificate</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck6">Aadhaar Card (self & parent)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck7">Bank Passbook / Account Details</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck8">Passport-size Photographs (recent)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck9">Statement of Purpose (SOP)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck10">Recommendation Letters (2-3)</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck11">Resume / CV</span></div>
-          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span data-i18n="ck12">Disability Certificate (if applicable)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>ID Proof (Aadhaar Card / PAN Card / Voter ID)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>10th & 12th Marksheets (attested copies)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>College/University Admission Letter</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Income Certificate (Family income proof)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Caste Certificate (if applicable)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Domicile / Residence Certificate</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Bank Passbook / Account Details (IFSC code needed)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Passport-size Photographs (white background, recent)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Statement of Purpose (SOP)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Recommendation Letters (2-3, from professors/mentors)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Resume / CV (updated)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Academic Records (all semester marksheets)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>Disability Certificate (if applicable)</span></div>
+          <div class="checklist-item"><i class="far fa-square" onclick="toggleCheck(this)"></i> <span>EWS Certificate (if applicable)</span></div>
         </div>
       </div>
 
       <!-- TIPS -->
-      <div class="panel" style="margin-bottom:2rem">
-        <div class="panel-header"><h3><i class="fas fa-lightbulb" style="color:var(--accent)"></i> <span data-i18n="tips_title">Preparation Tips</span></h3></div>
+      <div class="panel" style="margin-bottom:2rem" id="tips-section">
+        <div class="panel-header"><h3><i class="fas fa-lightbulb" style="color:var(--accent)"></i> Preparation Tips</h3></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:0.5rem">
           <div class="feature-card" style="padding:1.2rem">
-            <h3 style="font-size:0.95rem;margin-bottom:0.4rem" data-i18n="tip1_t">📸 Photograph Tips</h3>
-            <p style="font-size:0.8rem" data-i18n="tip1_d">Use a plain white background. Ensure proper lighting. Wear formal attire. Size: 3.5cm × 4.5cm recommended.</p>
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem">📸 Photograph Tips</h3>
+            <p style="font-size:0.8rem">Use a plain white background. Ensure proper lighting. Wear formal attire. Size: 3.5cm × 4.5cm recommended. Keep both digital and print copies.</p>
           </div>
           <div class="feature-card" style="padding:1.2rem">
-            <h3 style="font-size:0.95rem;margin-bottom:0.4rem" data-i18n="tip2_t">📝 SOP Writing Tips</h3>
-            <p style="font-size:0.8rem" data-i18n="tip2_d">Keep it concise (500-800 words). Highlight academic goals, achievements, and why you deserve the scholarship.</p>
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem">📝 SOP Writing Tips</h3>
+            <p style="font-size:0.8rem">Keep it concise (500-800 words). Start with a personal story. Highlight academic goals, achievements, and why you deserve the scholarship. Proofread multiple times.</p>
           </div>
           <div class="feature-card" style="padding:1.2rem">
-            <h3 style="font-size:0.95rem;margin-bottom:0.4rem" data-i18n="tip3_t">✍️ Resume Tips</h3>
-            <p style="font-size:0.8rem" data-i18n="tip3_d">Use a clean format. Include education, skills, projects, and achievements. Keep it to 1-2 pages max.</p>
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem">✍️ Resume Tips</h3>
+            <p style="font-size:0.8rem">Use a clean format. Include education, skills, projects, and achievements. Keep it to 1-2 pages max. Tailor it for each scholarship.</p>
           </div>
           <div class="feature-card" style="padding:1.2rem">
-            <h3 style="font-size:0.95rem;margin-bottom:0.4rem" data-i18n="tip4_t">📂 Document Organization</h3>
-            <p style="font-size:0.8rem" data-i18n="tip4_d">Keep all documents scanned in PDF format. Name files clearly (e.g., Marksheet_10th_YourName.pdf). Maintain both digital and physical copies.</p>
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem">📂 Document Organization</h3>
+            <p style="font-size:0.8rem">Keep all documents scanned in PDF format. Name files clearly (e.g., Marksheet_10th_YourName.pdf). Maintain both digital and physical copies.</p>
+          </div>
+          <div class="feature-card" style="padding:1.2rem">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem">📄 Income Certificate Guide</h3>
+            <p style="font-size:0.8rem">Visit your local Tehsildar/SDM office. Required: Aadhaar, ration card, salary slip. Processing: 7-15 days. Apply early!</p>
+          </div>
+          <div class="feature-card" style="padding:1.2rem">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem">🤝 Recommendation Letters</h3>
+            <p style="font-size:0.8rem">Approach professors/mentors 2-3 weeks early. Provide them your resume and achievements. Request on official letterhead with signature.</p>
           </div>
         </div>
       </div>
 
       <!-- DOWNLOADS -->
-      <div class="section-header" style="text-align:left">
-        <h2 style="font-size:1.3rem" data-i18n="dl_title">📥 Download Templates</h2>
-        <p style="font-size:0.85rem" data-i18n="dl_desc">Free templates to kickstart your application.</p>
+      <div class="section-header" style="text-align:left" id="downloads-section">
+        <h2 style="font-size:1.3rem">📥 Download Templates</h2>
+        <p style="font-size:0.85rem">Free templates to kickstart your application.</p>
       </div>
       <div class="doc-grid">
         <div class="doc-card">
           <div class="dc-icon"><i class="fas fa-file-word"></i></div>
-          <h4 data-i18n="dl1_t">Resume Template</h4>
-          <p data-i18n="dl1_d">Professional student resume format optimized for scholarships.</p>
-          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('resume')"><i class="fas fa-download"></i> <span data-i18n="dl_btn">Download</span></button>
+          <h4>Resume Template</h4>
+          <p>Professional student resume format optimized for scholarships.</p>
+          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('resume')"><i class="fas fa-download"></i> Download</button>
         </div>
         <div class="doc-card">
           <div class="dc-icon" style="background:rgba(245,158,11,0.1);color:var(--accent)"><i class="fas fa-file-alt"></i></div>
-          <h4 data-i18n="dl2_t">SOP Template</h4>
-          <p data-i18n="dl2_d">Statement of Purpose template with guidelines and sample content.</p>
-          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('sop')"><i class="fas fa-download"></i> <span data-i18n="dl_btn">Download</span></button>
+          <h4>SOP Template</h4>
+          <p>Statement of Purpose template with guidelines and sample content.</p>
+          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('sop')"><i class="fas fa-download"></i> Download</button>
         </div>
         <div class="doc-card">
           <div class="dc-icon" style="background:rgba(16,185,129,0.1);color:var(--success)"><i class="fas fa-file-signature"></i></div>
-          <h4 data-i18n="dl3_t">Sample Application Form</h4>
-          <p data-i18n="dl3_d">Pre-filled sample form to guide you through common fields.</p>
-          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('form')"><i class="fas fa-download"></i> <span data-i18n="dl_btn">Download</span></button>
+          <h4>Sample Application Form</h4>
+          <p>Pre-filled sample form to guide you through common fields.</p>
+          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('form')"><i class="fas fa-download"></i> Download</button>
         </div>
         <div class="doc-card">
           <div class="dc-icon" style="background:rgba(239,68,68,0.1);color:var(--danger)"><i class="fas fa-envelope-open-text"></i></div>
-          <h4 data-i18n="dl4_t">Recommendation Letter</h4>
-          <p data-i18n="dl4_d">Template for requesting recommendation letters from professors.</p>
-          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('recommendation')"><i class="fas fa-download"></i> <span data-i18n="dl_btn">Download</span></button>
+          <h4>Recommendation Letter</h4>
+          <p>Template for requesting recommendation letters from professors.</p>
+          <button class="btn btn-secondary btn-sm" onclick="downloadTemplate('recommendation')"><i class="fas fa-download"></i> Download</button>
         </div>
       </div>
     </section>
@@ -119,6 +136,18 @@
     </div>
     <div class="footer-bottom">© 2026 ScholarHub. All rights reserved.</div>
   </footer>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <div class="bottom-nav" id="bottomNav">
+    <div class="bottom-nav-inner">
+      <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="scholarships.html"><i class="fas fa-graduation-cap"></i><span>Scholarships</span></a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="assistant.html"><i class="fas fa-robot"></i><span>Assistant</span></a>
+      <a href="documents.html" class="active"><i class="fas fa-file-alt"></i><span>Docs</span></a>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
