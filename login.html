@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — ScholarHub</title>
+  <meta name="description" content="Login or sign up to personalize your scholarship experience.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-card">
+      <a href="index.html" class="nav-brand" style="justify-content:center;margin-bottom:1.5rem;font-size:1.6rem"><i class="fas fa-graduation-cap"></i> Scholar<span>Hub</span></a>
+      
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+        <h2 data-i18n="login_title">Welcome Back</h2>
+        <p class="subtitle" data-i18n="login_sub">Login to access your personalized dashboard</p>
+        <div class="form-group">
+          <label data-i18n="login_email">Email</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label data-i18n="login_pass">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••">
+        </div>
+        <button class="btn btn-primary" onclick="handleLogin()" style="margin-top:0.5rem"><i class="fas fa-sign-in-alt"></i> <span data-i18n="login_btn">Login</span></button>
+        <p class="form-toggle" data-i18n="login_toggle">Don't have an account? <a onclick="toggleAuthForm('signup')">Sign Up</a></p>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signupForm" style="display:none">
+        <h2 data-i18n="signup_title">Create Account</h2>
+        <p class="subtitle" data-i18n="signup_sub">Join to discover and track scholarships</p>
+        <div class="form-group">
+          <label data-i18n="signup_name">Full Name</label>
+          <input type="text" id="signupName" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label data-i18n="signup_email">Email</label>
+          <input type="email" id="signupEmail" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label data-i18n="signup_pass">Password</label>
+          <input type="password" id="signupPassword" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label data-i18n="signup_field">Field of Study</label>
+          <select id="signupField">
+            <option value="engineering">Engineering</option>
+            <option value="medical">Medical</option>
+            <option value="science">Science</option>
+            <option value="arts">Arts & Humanities</option>
+            <option value="commerce">Commerce</option>
+            <option value="general">General</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="signup_cat">Category</label>
+          <select id="signupCategory">
+            <option value="general">General</option>
+            <option value="obc">OBC</option>
+            <option value="sc">SC</option>
+            <option value="st">ST</option>
+            <option value="ews">EWS</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="handleSignup()"><i class="fas fa-user-plus"></i> <span data-i18n="signup_btn">Create Account</span></button>
+        <p class="form-toggle" data-i18n="signup_toggle">Already have an account? <a onclick="toggleAuthForm('login')">Login</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
