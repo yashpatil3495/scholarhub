@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarships — ScholarHub</title>
+  <meta name="description" content="Browse government and private scholarships. Filter, search, and apply easily.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-graduation-cap"></i> Scholar<span>Hub</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="scholarships.html" class="active">Scholarships</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="assistant.html">Assistant</a>
+      <a href="documents.html">Documents</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-notif" id="notifBtn"><i class="fas fa-bell"></i><span class="badge" id="notifBadge">3</span></button>
+      <a href="login.html" class="nav-user" id="navUser"><span class="avatar" id="userAvatar"><i class="fas fa-user"></i></span><span id="userName">Login</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="notif-panel" id="notifPanel"><h4>🔔 Notifications</h4><div id="notifList"></div></div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <main class="main-content">
+    <!-- HEADER -->
+    <section class="hero" style="padding:2.5rem 2rem 2rem;text-align:center">
+      <div class="hero-content">
+        <h1 style="font-size:2.2rem" data-i18n="sch_title">🎓 Explore <span class="highlight">Scholarships</span></h1>
+        <p data-i18n="sch_desc">Find the perfect scholarship from government and private sources. Use filters to narrow down your search.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <!-- SEARCH & FILTER -->
+      <div class="sch-controls">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="schSearch" placeholder="Search scholarships..." data-i18n-ph="sch_search_ph">
+        </div>
+        <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> All</button>
+        <button class="filter-btn" data-filter="gov"><i class="fas fa-university"></i> Government</button>
+        <button class="filter-btn" data-filter="private"><i class="fas fa-building"></i> Private</button>
+        <select class="filter-btn" id="fieldFilter" style="appearance:auto;padding-right:2rem">
+          <option value="all" data-i18n="filter_all_fields">All Fields</option>
+          <option value="engineering">Engineering</option>
+          <option value="medical">Medical</option>
+          <option value="arts">Arts & Humanities</option>
+          <option value="science">Science</option>
+          <option value="commerce">Commerce</option>
+          <option value="general">General</option>
+        </select>
+        <select class="filter-btn" id="deadlineFilter" style="appearance:auto;padding-right:2rem">
+          <option value="all" data-i18n="filter_all_dl">All Deadlines</option>
+          <option value="7">Within 7 days</option>
+          <option value="30">Within 30 days</option>
+          <option value="90">Within 90 days</option>
+        </select>
+      </div>
+
+      <!-- SCHOLARSHIP GRID -->
+      <div class="sch-grid" id="schGrid"></div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="schModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Scholarship Details</h2>
+        <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>ScholarHub</h4><p style="font-size:0.85rem;color:rgba(248,250,252,0.6)">Your complete scholarship companion.</p></div>
+      <div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="scholarships.html">Scholarships</a><a href="dashboard.html">Dashboard</a><a href="assistant.html">Assistant</a></div>
+      <div class="footer-col"><h4>Resources</h4><a href="documents.html">Documents</a><a href="#">FAQ</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="#">info@scholarhub.com</a></div>
+    </div>
+    <div class="footer-bottom">© 2026 ScholarHub. All rights reserved.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
