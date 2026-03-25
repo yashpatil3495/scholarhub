@@ -30,6 +30,13 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <main class="main-content">
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">Scholarships</span>
+    </div>
+
     <!-- HEADER -->
     <section class="hero" style="padding:2.5rem 2rem 2rem;text-align:center">
       <div class="hero-content">
@@ -43,13 +50,13 @@
       <div class="sch-controls">
         <div class="search-box">
           <i class="fas fa-search"></i>
-          <input type="text" id="schSearch" placeholder="Search scholarships..." data-i18n-ph="sch_search_ph">
+          <input type="text" id="schSearch" placeholder="Search scholarships...">
         </div>
         <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> All</button>
         <button class="filter-btn" data-filter="gov"><i class="fas fa-university"></i> Government</button>
         <button class="filter-btn" data-filter="private"><i class="fas fa-building"></i> Private</button>
         <select class="filter-btn" id="fieldFilter" style="appearance:auto;padding-right:2rem">
-          <option value="all" data-i18n="filter_all_fields">All Fields</option>
+          <option value="all">All Fields</option>
           <option value="engineering">Engineering</option>
           <option value="medical">Medical</option>
           <option value="arts">Arts & Humanities</option>
@@ -58,12 +65,15 @@
           <option value="general">General</option>
         </select>
         <select class="filter-btn" id="deadlineFilter" style="appearance:auto;padding-right:2rem">
-          <option value="all" data-i18n="filter_all_dl">All Deadlines</option>
+          <option value="all">All Deadlines</option>
           <option value="7">Within 7 days</option>
           <option value="30">Within 30 days</option>
           <option value="90">Within 90 days</option>
         </select>
       </div>
+
+      <!-- RESULTS COUNT -->
+      <p id="resultsCount" style="font-size:0.85rem;color:var(--text-light);margin-bottom:1rem"></p>
 
       <!-- SCHOLARSHIP GRID -->
       <div class="sch-grid" id="schGrid"></div>
@@ -90,6 +100,18 @@
     </div>
     <div class="footer-bottom">© 2026 ScholarHub. All rights reserved.</div>
   </footer>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <div class="bottom-nav" id="bottomNav">
+    <div class="bottom-nav-inner">
+      <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="scholarships.html" class="active"><i class="fas fa-graduation-cap"></i><span>Scholarships</span></a>
+      <a href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="assistant.html"><i class="fas fa-robot"></i><span>Assistant</span></a>
+      <a href="documents.html"><i class="fas fa-file-alt"></i><span>Docs</span></a>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
