@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — ScholarHub</title>
+  <meta name="description" content="Track your scholarship applications, view recommendations, and monitor your progress.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-graduation-cap"></i> Scholar<span>Hub</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a><a href="scholarships.html">Scholarships</a>
+      <a href="dashboard.html" class="active">Dashboard</a><a href="assistant.html">Assistant</a><a href="documents.html">Documents</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-notif" id="notifBtn"><i class="fas fa-bell"></i><span class="badge" id="notifBadge">3</span></button>
+      <a href="login.html" class="nav-user" id="navUser"><span class="avatar" id="userAvatar"><i class="fas fa-user"></i></span><span id="userName">Login</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="notif-panel" id="notifPanel"><h4>🔔 Notifications</h4><div id="notifList"></div></div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <main class="main-content">
+    <section class="hero" style="padding:2rem 2rem 1.5rem;text-align:center">
+      <div class="hero-content">
+        <h1 style="font-size:2rem" data-i18n="dash_title">📊 Your <span class="highlight">Dashboard</span></h1>
+        <p data-i18n="dash_desc">Track applications, view recommendations, and monitor your scholarship journey.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <!-- STATS -->
+      <div class="dash-stats">
+        <div class="stat-card"><div class="sc-icon blue"><i class="fas fa-graduation-cap"></i></div><div><h3 id="totalSch">0</h3><p data-i18n="ds_total">Total Scholarships</p></div></div>
+        <div class="stat-card"><div class="sc-icon yellow"><i class="fas fa-star"></i></div><div><h3 id="savedCount">0</h3><p data-i18n="ds_saved">Saved</p></div></div>
+        <div class="stat-card"><div class="sc-icon green"><i class="fas fa-paper-plane"></i></div><div><h3 id="appliedCount">0</h3><p data-i18n="ds_applied">Applied</p></div></div>
+        <div class="stat-card"><div class="sc-icon red"><i class="fas fa-clock"></i></div><div><h3 id="upcomingDl">0</h3><p data-i18n="ds_upcoming">Upcoming Deadlines</p></div></div>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="recommendations" data-i18n="tab_rec">Recommendations</button>
+        <button class="tab-btn" data-tab="saved" data-i18n="tab_saved">Saved</button>
+        <button class="tab-btn" data-tab="progress" data-i18n="tab_progress">Progress</button>
+        <button class="tab-btn" data-tab="calendar" data-i18n="tab_cal">Calendar</button>
+      </div>
+
+      <!-- RECOMMENDATIONS TAB -->
+      <div class="tab-content" id="tab-recommendations">
+        <div class="section-header" style="text-align:left;margin-bottom:1rem">
+          <h2 style="font-size:1.3rem" data-i18n="rec_title">🧠 Personalized Recommendations</h2>
+          <p style="font-size:0.85rem" data-i18n="rec_desc">Based on your profile and activity.</p>
+        </div>
+        <div class="sch-grid" id="recGrid"></div>
+      </div>
+
+      <!-- SAVED TAB -->
+      <div class="tab-content" id="tab-saved" style="display:none">
+        <div class="section-header" style="text-align:left;margin-bottom:1rem">
+          <h2 style="font-size:1.3rem" data-i18n="saved_title">⭐ Saved Scholarships</h2>
+        </div>
+        <div class="sch-grid" id="savedGrid"></div>
+        <p id="noSaved" style="display:none;color:var(--text-light);text-align:center;padding:2rem" data-i18n="no_saved">No saved scholarships yet. Browse scholarships and tap ⭐ to save!</p>
+      </div>
+
+      <!-- PROGRESS TAB -->
+      <div class="tab-content" id="tab-progress" style="display:none">
+        <div class="section-header" style="text-align:left;margin-bottom:1rem">
+          <h2 style="font-size:1.3rem" data-i18n="prog_title">📈 Application Progress</h2>
+        </div>
+        <div class="progress-list" id="progressList"></div>
+      </div>
+
+      <!-- CALENDAR TAB -->
+      <div class="tab-content" id="tab-calendar" style="display:none">
+        <div class="two-col">
+          <div class="calendar" id="calendarWidget">
+            <div class="cal-header">
+              <h3 id="calMonth">March 2026</h3>
+              <div class="cal-nav">
+                <button onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <div>
+            <div class="prob-meter">
+              <h3 style="font-size:1.1rem" data-i18n="prob_title">🎯 Success Probability</h3>
+              <p style="font-size:0.8rem;color:var(--text-light);margin-top:0.3rem" data-i18n="prob_desc">Based on your profile completeness & activity</p>
+              <div class="prob-circle" id="probCircle"><span id="probValue">0%</span></div>
+              <p style="font-size:0.85rem;color:var(--text-light);margin-top:0.5rem" id="probTip" data-i18n="prob_tip">Complete your profile to improve chances!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>ScholarHub</h4><p style="font-size:0.85rem;color:rgba(248,250,252,0.6)">Your complete scholarship companion.</p></div>
+      <div class="footer-col"><h4>Pages</h4><a href="index.html">Home</a><a href="scholarships.html">Scholarships</a><a href="dashboard.html">Dashboard</a><a href="assistant.html">Assistant</a></div>
+      <div class="footer-col"><h4>Resources</h4><a href="documents.html">Documents</a><a href="#">FAQ</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="#">info@scholarhub.com</a></div>
+    </div>
+    <div class="footer-bottom">© 2026 ScholarHub. All rights reserved.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
