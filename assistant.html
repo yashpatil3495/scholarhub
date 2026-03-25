@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant — ScholarHub</title>
+  <meta name="description" content="Get instant scholarship guidance with our AI-powered chat assistant.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand"><i class="fas fa-graduation-cap"></i> Scholar<span>Hub</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a><a href="scholarships.html">Scholarships</a>
+      <a href="dashboard.html">Dashboard</a><a href="assistant.html" class="active">Assistant</a><a href="documents.html">Documents</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-notif" id="notifBtn"><i class="fas fa-bell"></i><span class="badge" id="notifBadge">3</span></button>
+      <a href="login.html" class="nav-user" id="navUser"><span class="avatar" id="userAvatar"><i class="fas fa-user"></i></span><span id="userName">Login</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="notif-panel" id="notifPanel"><h4>🔔 Notifications</h4><div id="notifList"></div></div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <main class="main-content" style="padding-bottom:0">
+    <section class="section" style="padding-top:1rem;padding-bottom:0;max-width:900px">
+      <div class="chat-container" style="background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden">
+        <!-- CHAT HEADER -->
+        <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--primary),var(--primary-light))">
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem"><i class="fas fa-robot"></i></div>
+          <div><h3 style="font-size:1rem;color:#fff" data-i18n="chat_title">ScholarBot</h3><p style="font-size:0.75rem;color:rgba(255,255,255,0.8)" data-i18n="chat_sub">AI-Powered Scholarship Assistant</p></div>
+        </div>
+        <!-- SUGGESTIONS -->
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button onclick="sendSuggestion(this)" data-i18n="sug1">What scholarships can I apply for?</button>
+          <button onclick="sendSuggestion(this)" data-i18n="sug2">What documents are required?</button>
+          <button onclick="sendSuggestion(this)" data-i18n="sug3">How to write a good SOP?</button>
+          <button onclick="sendSuggestion(this)" data-i18n="sug4">Show urgent deadlines</button>
+          <button onclick="sendSuggestion(this)" data-i18n="sug5">Tips for scholarship interviews</button>
+        </div>
+        <!-- MESSAGES -->
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg bot">
+            <div class="msg-avatar"><i class="fas fa-robot"></i></div>
+            <div class="msg-bubble" data-i18n="chat_welcome">👋 Hi! I'm ScholarBot, your scholarship assistant. Ask me anything about scholarships, documents, applications, or deadlines. How can I help you today?</div>
+          </div>
+        </div>
+        <!-- INPUT -->
+        <div class="chat-input-area">
+          <input type="text" id="chatInput" placeholder="Type your question..." data-i18n-ph="chat_input_ph" onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
